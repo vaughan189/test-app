@@ -75,3 +75,14 @@
     width: 0px;
     background: transparent;
 }
+
+.bottom-shaddow {
+    border-bottom: 2px solid #e9e9e9;
+    margin-bottom: 10px;
+}
+
+.boundary {
+    .btn {
+        border: 0px solid transparent !important;
+    }
+}

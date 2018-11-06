@@ -34,8 +34,11 @@
                 </div>
             </div>
             <div class="row margin-left margin-top">
-                <div class="col">
+                <div class="col-lg-10">
                     <h6>{{project}}</h6>
+                </div>
+                <div class="col">
+                    <button type="button" class="btn btn-outline-primary"><i class="fa fa-plus" aria-hidden="true"></i>Add to Group</button>
                 </div>
             </div>
             <div class="row margin-left">
@@ -43,7 +46,7 @@
                     <p href="">Last Updated: {{lastupdated}}</p>
                 </div>
             </div>
-            <div class="row margin-left">
+            <div class="row margin-left bottom-shaddow">
                 <div class="col">
                     <p href="">Created On: {{createdon}}</p>
                     <p>{{description}}
@@ -79,9 +82,31 @@
                             </div>
                         </div>
                     </div>
+                    <div class="row margin-top margin-bottom">
+                        <div class="col-md-2">
+                            <div class="form-check">
+                                <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                                <label class="form-check-label" for="exampleCheck1">Select All</label>
+                            </div>
+                        </div>
+                        <div class="col-md-2 boundary">
+                            <button type="button" class="btn btn-outline-secondary"><i class="fa fa-refresh" aria-hidden="true"></i>Refresh</button>
+                        </div>
+                        <div class="col-md-2 boundary">
+                            <button id="btnGroupDrop1" type="button" class="btn btn-outline-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                              <i class="fa fa-filter" aria-hidden="true"></i>
+                              Filter
+                          </button>
+                            <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
+                                <a class="dropdown-item" href="#">Dropdown link</a>
+                                <a class="dropdown-item" href="#">Dropdown link</a>
+                            </div>
+                        </div>
+                    </div>
                     <table class="table">
                         <thead>
                             <tr>
+                                <th scope="col"> </th>
                                 <th scope="col">#</th>
                                 <th scope="col">Forms</th>
                                 <th scope="col">Shape</th>
@@ -89,6 +114,7 @@
                         </thead>
                         <tbody>
                             <tr *ngFor="let form of _forms | filterBy: formFilter">
+                                <th scope="row"><input type="checkbox" class="form-check-input" id="exampleCheck1"></th>
                                 <th scope="row">{{form.id}}</th>
                                 <td>{{form.name}}</td>
                                 <td>{{form.shape}}</td>
