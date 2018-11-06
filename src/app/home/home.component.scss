@@ -1,0 +1,77 @@
+.width {
+    width: 20%;
+}
+
+#sticky-sidebar {
+    position: fixed;
+    max-width: 20%;
+}
+
+#container {
+    // width: 300px;
+    // height: 60px;
+    overflow: hidden;
+}
+
+#modules {
+    // height: 90px;
+    // /* 40px - more place for scrollbar, is hidden under parent box */
+    // padding: 5px;
+    white-space: nowrap;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    -webkit-overflow-scrolling: touch;
+}
+
+.primary {
+    background-color: #356994;
+    color: white;
+}
+
+.round {
+    border-radius: 50%;
+    width: 20px;
+    pointer-events: none;
+    vertical-align: middle;
+}
+
+.count {
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    pointer-events: none;
+    vertical-align: middle;
+    background-color: rgb(0, 225, 255);
+}
+
+.overlap1 {
+    margin-left: -28px;
+    z-index: 3;
+}
+
+.overlap2 {
+    margin-left: -54px;
+    z-index: 5;
+}
+
+.overlap3 {
+    margin-left: -85px;
+    z-index: 8;
+}
+
+.margin-left {
+    margin-left: 15px;
+}
+
+.margin-top {
+    margin-top: 35px;
+}
+
+.margin-bottom {
+    margin-bottom: 10px;
+}
+
+::-webkit-scrollbar {
+    width: 0px;
+    background: transparent;
+}

@@ -1,0 +1,136 @@
+<div class="container-fluid">
+    <div class="row flex-nowrap">
+        <div class="col-md-1 col-12 sidebar">
+            <app-side-menu></app-side-menu>
+        </div>
+        <div class="col-md col-12 main">
+            <app-header></app-header>
+            <div style="overflow-x:scroll;">
+                <div class="row " style="margin-left:10px;width:150%;cursor:pointer">
+                    <div class="col-md-2" *ngFor="let project of projects | filterBy: filter">
+                        <div class="card">
+                            <div class="card-header primary">
+                                <a (click)=show_project(project)>{{project.project}}</a>
+                            </div>
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-md-4">{{project.formsubmitted}}</div>
+                                    <div class="col-md-8">Number of Forms</div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-4">{{project.total}}</div>
+                                    <div class="col-md-2" *ngFor="let image of project.profile">
+                                        <img class="round" src="{{image.imageURL}}" alt="Avatar">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row margin-left">
+                <div class="col">
+                    <a href="">View All Projects</a>
+                </div>
+            </div>
+            <div class="row margin-left margin-top">
+                <div class="col">
+                    <h6>{{project}}</h6>
+                </div>
+            </div>
+            <div class="row margin-left">
+                <div class="col">
+                    <p href="">Last Updated: {{lastupdated}}</p>
+                </div>
+            </div>
+            <div class="row margin-left">
+                <div class="col">
+                    <p href="">Created On: {{createdon}}</p>
+                    <p>{{description}}
+                    </p>
+                </div>
+            </div>
+            <div class="row margin-left">
+                <div class="col">
+                    <ul class="nav nav-tabs">
+                        <li class="nav-item">
+                            <a class="nav-link {{forms}}" (click)="setTab('forms')">Forms</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link {{users}}" (click)="setTab('users')">Users</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="row margin-left" [ngSwitch]="tabs">
+                <div class="col" *ngSwitchCase="'forms'">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <button type="button" class="btn btn-outline-secondary margin-top margin-bottom">Add New form to Project</button>
+                        </div>
+                        <div class="col-md-6 margin-top">
+                            <div class="input-group search">
+                                <input class="form-control py-2 border-right-0 border" type="search" value="search" id="example-search-input" [(ngModel)]="formFilter.name">
+                                <span class="input-group-append">
+                                    <button class="btn btn-outline-secondary border-left-0 border" type="button">
+                                        <i class="fa fa-search"></i>
+                                    </button>
+                                  </span>
+                            </div>
+                        </div>
+                    </div>
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">Forms</th>
+                                <th scope="col">Shape</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let form of _forms | filterBy: formFilter">
+                                <th scope="row">{{form.id}}</th>
+                                <td>{{form.name}}</td>
+                                <td>{{form.shape}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="col" *ngSwitchCase="'users'">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <button type="button" class="btn btn-outline-secondary margin-top margin-bottom">Add New Users to Project</button>
+                        </div>
+                        <div class="col-md-6 margin-top">
+                            <div class="input-group search">
+                                <input class="form-control py-2 border-right-0 border" type="search" value="search" id="example-search-input" [(ngModel)]="userFilter.name">
+                                <span class="input-group-append">
+                                    <button class="btn btn-outline-secondary border-left-0 border" type="button">
+                                        <i class="fa fa-search"></i>
+                                    </button>
+                                  </span>
+                            </div>
+                        </div>
+                    </div>
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">First Name</th>
+                                <th scope="col">Last Name</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let user of _users | filterBy: userFilter">
+                                <th scope="row">{{user.id}}</th>
+                                <td>{{user.name}}</td>
+                                <td>{{user.shape}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
